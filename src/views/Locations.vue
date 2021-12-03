@@ -6,7 +6,7 @@
 	import TextCard from '@/components/TextCard'
 
 	export default {
-		name: 'People',
+		name: 'Locations',
 		components: {
 			TextCard
 		}

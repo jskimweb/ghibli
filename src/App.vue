@@ -1,15 +1,26 @@
 <template>
   <Header></Header>
-  <router-view></router-view>
+  <router-view v-slot="{Component}">
+    <transition name="fade">
+      <component :is="Component"></component>
+    </transition>
+  </router-view>
+  <Spinner :loading="loadingStatus"></Spinner>
 </template>
 
 <script>
-  import Header from '@/components/Header.vue'
+  import Header from '@/components/Header'
+  import Spinner from '@/components/Spinner.vue'
+  import { mapGetters } from 'vuex'
 
   export default {
     name: 'App',
+    computed: {
+      ...mapGetters(['loadingStatus'])
+    },
     components: {
-      Header
+      Header,
+      Spinner
     }
   }
 </script>
@@ -59,6 +70,14 @@
   }
   
   .container {
-    margin-top: 5rem;
+    margin: 5rem auto;
+  }
+
+  .fade-enter-from {
+    opacity: .5;
+  }
+
+  .fade-enter-active {
+    transition: .5s;
   }
 </style>
