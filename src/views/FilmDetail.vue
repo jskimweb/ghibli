@@ -14,8 +14,6 @@
 			<li>Rotten Tomato score : {{ oneFilm.rt_score }}</li>
 			<li>Running time : {{ oneFilm.running_time }} minutes</li>
 		</ul>
-		<!-- <router-link :to="`/people/${oneFilm.people[index].split('/')[4]}`"
-			v-for="(item, index) in oneFilm.people" :key="index">등장인물 {{ index }}</router-link> -->
 	</div>
 </template>
 

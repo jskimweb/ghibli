@@ -33,4 +33,9 @@
 		font-weight: 300;
 		margin-bottom: 5rem;
 	}
+
+	.container a {
+		color: #109CEB !important;
+		text-decoration: underline;
+	}
 </style>
