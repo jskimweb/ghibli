@@ -18,32 +18,34 @@
 </template>
 
 <script>
-	import { mapGetters } from 'vuex'
+	import { computed } from 'vue'
+	import { useStore } from 'vuex'
+	import { useRoute } from 'vue-router'
 
 	export default {
 		name: 'TextCard',
-		computed: {
-			...mapGetters(['filmsList', 'peopleList', 'locationsList', 'speciesList', 'vehiclesList']),
-			List() {
-				const routeName = this.$route.name;
+		setup() {
+			const store = useStore();
+			const route = useRoute();
+			const List = computed(() => {
+				const routeName = route.name;
 				if (routeName === 'Films') {
-					return this.filmsList;
-
+					return store.getters.filmsList;
 				} else if (routeName === 'People') {
-					return this.peopleList;
-
+					return store.getters.peopleList;
 				} else if (routeName === 'Locations') {
-					return this.locationsList;
-
+					return store.getters.locationsList;
 				} else if (routeName === 'Species') {
-					return this.speciesList;
-
+					return store.getters.speciesList;
 				} else if (routeName === 'Vehicles') {
-					return this.vehiclesList;
-					
+					return store.getters.vehiclesList;
 				} else {
 					return false;
 				}
+			});
+
+			return {
+				List
 			}
 		}
 	}

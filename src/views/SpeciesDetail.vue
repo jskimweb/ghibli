@@ -8,12 +8,20 @@
 </template>
 
 <script>
-	import { mapGetters } from 'vuex'
+	import { computed } from 'vue'
+	import { useStore } from 'vuex'
 
 	export default {
 		name: 'SpeciesDetail',
-		computed: {
-			...mapGetters(['oneSpecies'])
+		setup() {
+			const store = useStore();
+			const oneSpecies = computed(() => {
+				return store.getters.oneSpecies;
+			})
+
+			return {
+				oneSpecies
+			}
 		}
 	}
 </script>

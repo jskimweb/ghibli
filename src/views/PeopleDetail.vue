@@ -10,12 +10,20 @@
 </template>
 
 <script>
-	import { mapGetters } from 'vuex'
+	import { computed } from 'vue'
+	import { useStore } from 'vuex'
 
 	export default {
 		name: 'PeopleDetail',
-		computed: {
-			...mapGetters(['onePeople'])
+		setup() {
+			const store = useStore();
+			const onePeople = computed(() => {
+				return store.getters.onePeople;
+			})
+
+			return {
+				onePeople
+			}
 		}
 	}
 </script>

@@ -33,18 +33,13 @@
 </template>
 
 <script>
-	import {
-		computed
-	} from 'vue'
-	import {
-		useRoute
-	} from 'vue-router'
+	import { computed } from 'vue'
+	import { useRoute	} from 'vue-router'
 
 	export default {
 		name: 'Header',
 		setup() {
 			const route = useRoute();
-
 			const activeFilmMenu = computed(() => {
 				if (route.name === 'FilmDetail') {
 					return true;

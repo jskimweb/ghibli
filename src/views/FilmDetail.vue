@@ -18,12 +18,20 @@
 </template>
 
 <script>
-	import { mapGetters } from 'vuex'
+	import { computed } from 'vue'
+	import { useStore } from 'vuex'
 
 	export default {
 		name: 'FilmDetail',
-		computed: {
-			...mapGetters(['oneFilm'])
+		setup() {
+			const store = useStore();
+			const oneFilm = computed(() => {
+				return store.getters.oneFilm;
+			})
+
+			return {
+				oneFilm
+			}
 		}
 	}
 </script>
