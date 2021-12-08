@@ -1,16 +1,22 @@
 <template>
-	<div v-if="loading" class="spinner">
+	<div v-if="loadingStatus" class="spinner">
 		<div class="spinner-border" role="status"></div>
 	</div>
 </template>
 
 <script>
+	import { computed } from 'vue'
+	import store from '@/store/store'
+
 	export default {
 		name: 'Spinner',
-		props: {
-			loading: {
-				type: Boolean,
-				required: true
+		setup() {
+			const loadingStatus = computed(() => {
+				return store.getters.loadingStatus;
+			});
+
+			return {
+				loadingStatus
 			}
 		}
 	}

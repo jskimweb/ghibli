@@ -1,13 +1,13 @@
 export default {
 	filmsList: [],
-	oneFilm: {},
 	peopleList: [],
-	onePeople: {},
 	locationsList: [],
-	oneLocation: {},
 	speciesList: [],
-	oneSpecies: {},
 	vehiclesList: [],
+	oneFilm: {},
+	onePeople: {},
+	oneLocation: {},
+	oneSpecies: {},
 	oneVehicle: {},
 	loadingStatus: false
 }

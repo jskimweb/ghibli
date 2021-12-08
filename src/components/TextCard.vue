@@ -19,13 +19,12 @@
 
 <script>
 	import { computed } from 'vue'
-	import { useStore } from 'vuex'
 	import { useRoute } from 'vue-router'
+	import store from '@/store/store'
 
 	export default {
 		name: 'TextCard',
 		setup() {
-			const store = useStore();
 			const route = useRoute();
 			const List = computed(() => {
 				const routeName = route.name;

@@ -5,19 +5,15 @@
       <component :is="Component"></component>
     </transition>
   </router-view>
-  <Spinner :loading="loadingStatus"></Spinner>
+  <Spinner></Spinner>
 </template>
 
 <script>
   import Header from '@/components/Header'
   import Spinner from '@/components/Spinner.vue'
-  import { mapGetters } from 'vuex'
 
   export default {
     name: 'App',
-    computed: {
-      ...mapGetters(['loadingStatus'])
-    },
     components: {
       Header,
       Spinner
