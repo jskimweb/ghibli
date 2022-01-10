@@ -101,7 +101,7 @@
 		display: block;
 		width: 10rem;
 		height: 10rem;
-		background: url('../assets/images/logo.png') no-repeat center;
+		background: url('../../public/img/icons/logo.png') no-repeat center;
 		background-size: cover;
 		margin: 0 auto;
 	}
