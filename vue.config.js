@@ -5,6 +5,10 @@ module.exports = {
 		msTileColor: '#ffffff',
 		workboxOptions: {
 			exclude: [/\.map$/, /manifest\.json$/, 'index.html']
+		},
+		iconPaths: {
+			appleTouchIcon: 'public/img/icons/logo.png',
+			msTileImage: 'public/img/icons/logo.png'
 		}
 	}
 }
