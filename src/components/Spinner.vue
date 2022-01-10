@@ -21,6 +21,7 @@
 		}
 	}
 </script>
+
 <style scoped>
 	.spinner {
 		position: absolute;

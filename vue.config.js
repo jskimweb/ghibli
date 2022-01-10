@@ -2,7 +2,7 @@ module.exports = {
 	pwa: {
 		name: 'Studio Ghibli Search',
 		themeColor: '#109CEB',
-		msTileColor: '#000000',
+		msTileColor: '#ffffff',
 		workboxOptions: {
 			exclude: [/\.map$/, /manifest\.json$/, 'index.html']
 		}

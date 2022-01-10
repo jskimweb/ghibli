@@ -57,7 +57,7 @@ export default {
 		commit('SET_ONESPECIES', data);
 		return data;
 	},
-	async GET_ONEVEHICLE({	commit }, vehicleId) {
+	async GET_ONEVEHICLE({ commit }, vehicleId) {
 		const {	data } = await getOneVehicle(vehicleId);
 		commit('SET_ONEVEHICLE', data);
 		return data;

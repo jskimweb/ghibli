@@ -12,25 +12,9 @@ async function getFilms() {
 	}
 }
 
-async function getOneFilm(filmId) {
-	try {
-		return axios.get(`${config.baseUrl}/films/${filmId}`)
-	} catch (error) {
-		console.log(error);
-	}
-}
-
 async function getPeople() {
 	try {
 		return axios.get(`${config.baseUrl}/people`)
-	} catch (error) {
-		console.log(error);
-	}
-}
-
-async function getOnePeople(peopleId) {
-	try {
-		return axios.get(`${config.baseUrl}/people/${peopleId}`)
 	} catch (error) {
 		console.log(error);
 	}
@@ -44,14 +28,6 @@ async function getLocations() {
 	}
 }
 
-async function getOneLocation(locationId) {
-	try {
-		return axios.get(`${config.baseUrl}/locations/${locationId}`)
-	} catch (error) {
-		console.log(error);
-	}
-}
-
 async function getSpecies() {
 	try {
 		return axios.get(`${config.baseUrl}/species`)
@@ -60,17 +36,41 @@ async function getSpecies() {
 	}
 }
 
-async function getOneSpecies(speciesId) {
+async function getVehicles() {
 	try {
-		return axios.get(`${config.baseUrl}/species/${speciesId}`)
+		return axios.get(`${config.baseUrl}/vehicles`)
 	} catch (error) {
 		console.log(error);
 	}
 }
 
-async function getVehicles() {
+async function getOneFilm(filmId) {
 	try {
-		return axios.get(`${config.baseUrl}/vehicles`)
+		return axios.get(`${config.baseUrl}/films/${filmId}`)
+	} catch (error) {
+		console.log(error);
+	}
+}
+
+async function getOnePeople(peopleId) {
+	try {
+		return axios.get(`${config.baseUrl}/people/${peopleId}`)
+	} catch (error) {
+		console.log(error);
+	}
+}
+
+async function getOneLocation(locationId) {
+	try {
+		return axios.get(`${config.baseUrl}/locations/${locationId}`)
+	} catch (error) {
+		console.log(error);
+	}
+}
+
+async function getOneSpecies(speciesId) {
+	try {
+		return axios.get(`${config.baseUrl}/species/${speciesId}`)
 	} catch (error) {
 		console.log(error);
 	}
@@ -86,13 +86,13 @@ async function getOneVehicle(vehicleId) {
 
 export {
 	getFilms,
-	getOneFilm,
 	getPeople,
-	getOnePeople,
 	getLocations,
-	getOneLocation,
 	getSpecies,
-	getOneSpecies,
 	getVehicles,
+	getOneFilm,
+	getOnePeople,
+	getOneLocation,
+	getOneSpecies,
 	getOneVehicle
 }
