@@ -1,18 +1,16 @@
 <template>
-	<TextCard></TextCard>
+  <TextCard />
 </template>
 
 <script>
-	import TextCard from '@/components/TextCard'
+import TextCard from '@/components/TextCard';
 
-	export default {
-		name: 'Films',
-		components: {
-			TextCard
-		}
-	}
+export default {
+  name: 'Films',
+  components: {
+    TextCard,
+  },
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
