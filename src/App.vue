@@ -1,79 +1,79 @@
 <template>
-  <Header></Header>
-  <router-view v-slot="{Component}">
+  <Header />
+  <router-view v-slot="{ Component }">
     <transition name="fade">
-      <component :is="Component"></component>
+      <component :is="Component" />
     </transition>
   </router-view>
-  <Spinner></Spinner>
+  <Spinner />
 </template>
 
 <script>
-  import Header from '@/components/Header'
-  import Spinner from '@/components/Spinner.vue'
+import Header from '@/components/Header';
+import Spinner from '@/components/Spinner.vue';
 
-  export default {
-    name: 'App',
-    components: {
-      Header,
-      Spinner
-    }
-  }
+export default {
+  components: {
+    // eslint-disable-next-line vue/no-reserved-component-names
+    Header,
+    Spinner,
+  },
+};
 </script>
 
 <style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    outline: none;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
 
-  a {
-    color: black;
-    text-decoration: none;
-  }
+a {
+  color: black;
+  text-decoration: none;
+}
 
-  button {
-    background: none;
-    border: none;
-  }
+button {
+  background: none;
+  border: none;
+}
 
-  img {
-    border: 0;
-    vertical-align: middle;
-  }
+img {
+  border: 0;
+  vertical-align: middle;
+}
 
-  li,
-  ul {
-    list-style: none;
-  }
+li,
+ul {
+  list-style: none;
+}
 
-  html {
-    font-size: 10px;
-  }
+html {
+  font-size: 10px;
+}
 
-  body {
-    font-family: 'Noto Sans KR', sans-serif;
-    font-size: 2rem;
-    font-weight: 400;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 2rem;
+  font-weight: 400;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 
-  ::-webkit-scrollbar {
-    display: none;
-  }
-  
-  .container {
-    margin: 5rem auto;
-  }
+::-webkit-scrollbar {
+  display: none;
+}
 
-  .fade-enter-from {
-    opacity: .5;
-  }
+.container {
+  margin: 5rem auto;
+}
 
-  .fade-enter-active {
-    transition: .5s;
-  }
+.fade-enter-from {
+  opacity: 0.5;
+}
+
+.fade-enter-active {
+  transition: 0.5s;
+}
 </style>
