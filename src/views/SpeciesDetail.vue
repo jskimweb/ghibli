@@ -16,7 +16,7 @@ export default {
   setup() {
     const store = useStore();
     const oneSpecies = computed(() => {
-      return store.getters.oneSpecies;
+      return store.state.oneSpecies;
     });
 
     return {

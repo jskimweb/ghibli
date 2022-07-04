@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
+import store from '../store/index.js';
 import Films from '@/views/Films.vue';
 import People from '@/views/People.vue';
 import Locations from '@/views/Locations.vue';
@@ -9,7 +10,6 @@ import PeopleDetail from '@/views/PeopleDetail.vue';
 import LocationDetail from '@/views/LocationDetail.vue';
 import SpeciesDetail from '@/views/SpeciesDetail.vue';
 import VehicleDetail from '@/views/VehicleDetail.vue';
-import store from '@/store/store.js';
 
 const router = createRouter({
   history: createWebHistory(),

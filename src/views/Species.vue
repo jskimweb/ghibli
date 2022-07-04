@@ -2,15 +2,6 @@
   <TextCard />
 </template>
 
-<script>
-import TextCard from '@/components/TextCard';
-
-export default {
-  name: 'Species',
-  components: {
-    TextCard,
-  },
-};
+<script setup>
+import TextCard from '../components/TextCard.vue';
 </script>
-
-<style scoped></style>

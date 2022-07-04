@@ -20,7 +20,7 @@
         <ul class="navbar-nav">
           <li class="nav-item">
             <router-link
-              :class="{ 'color-active': activeFilmMenu }"
+              :class="{ 'color-active': routeName === 'FilmDetail' }"
               to="/films"
               class="nav-link"
               >Films</router-link
@@ -28,7 +28,7 @@
           </li>
           <li class="nav-item">
             <router-link
-              :class="{ 'color-active': activePeopleMenu }"
+              :class="{ 'color-active': routeName === 'PeopleDetail' }"
               to="/people"
               class="nav-link"
               >People</router-link
@@ -36,7 +36,7 @@
           </li>
           <li class="nav-item">
             <router-link
-              :class="{ 'color-active': activeLocationsMenu }"
+              :class="{ 'color-active': routeName === 'LocationDetail' }"
               to="/locations"
               class="nav-link"
               >Locations
@@ -44,7 +44,7 @@
           </li>
           <li class="nav-item">
             <router-link
-              :class="{ 'color-active': activeSpeciesMenu }"
+              :class="{ 'color-active': routeName === 'SpeciesDetail' }"
               to="/species"
               class="nav-link"
               >Species
@@ -52,7 +52,7 @@
           </li>
           <li class="nav-item">
             <router-link
-              :class="{ 'color-active': activeVehiclesMenu }"
+              :class="{ 'color-active': routeName === 'VehicleDetail' }"
               to="/vehicles"
               class="nav-link"
               >Vehicles
@@ -64,82 +64,35 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 
-export default {
-  setup() {
-    const route = useRoute();
-    const activeFilmMenu = computed(() => {
-      if (route.name === 'FilmDetail') {
-        return true;
-      } else {
-        return false;
-      }
-    });
-    const activePeopleMenu = computed(() => {
-      if (route.name === 'PeopleDetail') {
-        return true;
-      } else {
-        return false;
-      }
-    });
-    const activeLocationsMenu = computed(() => {
-      if (route.name === 'LocationDetail') {
-        return true;
-      } else {
-        return false;
-      }
-    });
-    const activeSpeciesMenu = computed(() => {
-      if (route.name === 'SpeciesDetail') {
-        return true;
-      } else {
-        return false;
-      }
-    });
-    const activeVehiclesMenu = computed(() => {
-      if (route.name === 'VehicleDetail') {
-        return true;
-      } else {
-        return false;
-      }
-    });
+const route = useRoute();
 
-    return {
-      activeFilmMenu,
-      activePeopleMenu,
-      activeLocationsMenu,
-      activeSpeciesMenu,
-      activeVehiclesMenu,
-    };
-  },
-};
+const routeName = computed(() => route.name);
 </script>
 
-<style scoped>
-.color-active {
-  color: #109ceb !important;
-}
-
+<style lang="scss" scoped>
 .header {
   background-color: #109ceb;
   box-shadow: 0 0.1rem 1rem 0.5rem rgba(0, 0, 0, 0.2);
+  .logo {
+    display: block;
+    width: 10rem;
+    height: 10rem;
+    background: url('../../public/img/icons/logo.png') no-repeat center;
+    background-size: cover;
+    margin: 0 auto;
+  }
+  .navbar {
+    justify-content: flex-end;
+    background-color: white;
+  }
 }
 
-.header .logo {
-  display: block;
-  width: 10rem;
-  height: 10rem;
-  background: url('../../public/img/icons/logo.png') no-repeat center;
-  background-size: cover;
-  margin: 0 auto;
-}
-
-.header .navbar {
-  justify-content: flex-end;
-  background-color: white;
+.color-active {
+  color: #109ceb !important;
 }
 
 .router-link-exact-active {

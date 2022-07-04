@@ -1,26 +1,26 @@
 <template>
   <div class="container">
     <div
-      v-for="(item, index) in List"
-      :key="index"
+      v-for="item in itemList"
+      :key="item"
       class="card"
-      :class="{ 'card--films': $route.name === 'Films' }"
+      :class="{ 'card--films': route.name === 'Films' }"
     >
-      <router-link :to="`${$route.path}/${item.id}`">
+      <router-link :to="`${route.path}/${item.id}`">
         <img
-          v-if="$route.name === 'Films'"
+          v-if="route.name === 'Films'"
           :src="item.image"
           class="card-img-top"
           alt="film_image"
         />
         <div class="card-body">
           <h3 class="card-title">{{ item.name }}</h3>
-          <div v-if="$route.name === 'Films'" style="overflow: hidden">
+          <div v-if="route.name === 'Films'" style="overflow: hidden">
             <h3 class="card-title">{{ item.title }}</h3>
             <p>{{ item.original_title }}</p>
             <p>{{ item.running_time }} minutes</p>
             <button
-              :class="{ 'button--films': $route.name === 'Films' }"
+              :class="{ 'button--films': route.name === 'Films' }"
               class="btn btn-link"
             >
               Read More
@@ -32,65 +32,52 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { computed } from 'vue';
+import { useStore } from 'vuex';
 import { useRoute } from 'vue-router';
-import store from '@/store/store';
 
-export default {
-  setup() {
-    const route = useRoute();
-    const List = computed(() => {
-      const routeName = route.name;
-      if (routeName === 'Films') {
-        return store.getters.filmsList;
-      } else if (routeName === 'People') {
-        return store.getters.peopleList;
-      } else if (routeName === 'Locations') {
-        return store.getters.locationsList;
-      } else if (routeName === 'Species') {
-        return store.getters.speciesList;
-      } else if (routeName === 'Vehicles') {
-        return store.getters.vehiclesList;
-      } else {
-        return false;
-      }
-    });
+const store = useStore();
+const route = useRoute();
 
-    return {
-      List,
-    };
-  },
-};
+const routeName = computed(() => route.name);
+const itemList = computed(() => {
+  let listName = '';
+  if (routeName.value === 'Films') listName = 'filmsList';
+  else if (routeName.value === 'People') listName = 'peopleList';
+  else if (routeName.value === 'Locations') listName = 'locationsList';
+  else if (routeName.value === 'Species') listName = 'speciesList';
+  else if (routeName.value === 'Vehicles') listName = 'vehiclesList';
+  else return false;
+  return store.state[listName];
+});
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .container {
   display: flex;
   flex-wrap: wrap;
 }
 
-.container .card {
+.card {
   width: 25%;
-}
-
-.card--films {
-  width: 33.3333% !important;
-}
-
-.container .card .card-body h3 {
-  font-size: 2rem;
-  font-weight: 500;
-  margin-bottom: 0;
-}
-
-.container .card .card-body p {
-  font-size: 1.5rem;
-  font-weight: 300;
-}
-
-.button--films {
-  font-size: 1.5rem;
-  float: right;
+  &.card--films {
+    width: 33.3333% !important;
+  }
+  .card-body {
+    h3 {
+      font-size: 2rem;
+      font-weight: 500;
+      margin-bottom: 0;
+    }
+    p {
+      font-size: 1.5rem;
+      font-weight: 300;
+    }
+  }
+  .button--films {
+    font-size: 1.5rem;
+    float: right;
+  }
 }
 </style>

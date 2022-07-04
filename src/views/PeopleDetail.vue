@@ -20,7 +20,7 @@ export default {
   setup() {
     const store = useStore();
     const onePeople = computed(() => {
-      return store.getters.onePeople;
+      return store.state.onePeople;
     });
 
     return {

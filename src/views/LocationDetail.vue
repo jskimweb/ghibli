@@ -16,7 +16,7 @@ export default {
   setup() {
     const store = useStore();
     const oneLocation = computed(() => {
-      return store.getters.oneLocation;
+      return store.state.oneLocation;
     });
 
     return {

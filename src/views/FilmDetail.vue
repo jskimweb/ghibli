@@ -17,59 +17,42 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { computed } from 'vue';
 import { useStore } from 'vuex';
 
-export default {
-  name: 'FilmDetail',
-  setup() {
-    const store = useStore();
-    const oneFilm = computed(() => {
-      return store.getters.oneFilm;
-    });
+const store = useStore();
 
-    return {
-      oneFilm,
-    };
-  },
-};
+const oneFilm = computed(() => store.state.oneFilm);
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .container {
   text-align: center;
-}
-
-.container img {
-  width: 100%;
-}
-
-.container .title-wrap {
-  margin: 5rem 0;
-}
-
-.container .title-wrap h2 {
-  font-size: 5rem;
-}
-
-.container .title-wrap h3 {
-  font-size: 2.5rem;
-  font-weight: 300;
-  margin-top: 1rem;
-}
-
-.container .title-wrap h4 {
-  font-size: 2rem;
-  font-weight: 300;
-  margin-top: 1rem;
-}
-
-.container .desc {
-  font-weight: 300;
-}
-
-.container ul {
-  margin-top: 5rem;
+  img {
+    width: 100%;
+  }
+  .title-wrap {
+    margin: 5rem 0;
+    h2 {
+      font-size: 5rem;
+    }
+    h3 {
+      font-size: 2.5rem;
+      font-weight: 300;
+      margin-top: 1rem;
+    }
+    h4 {
+      font-size: 2rem;
+      font-weight: 300;
+      margin-top: 1rem;
+    }
+  }
+  .desc {
+    font-weight: 300;
+  }
+  ul {
+    margin-top: 5rem;
+  }
 }
 </style>

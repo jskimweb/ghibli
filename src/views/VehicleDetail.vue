@@ -19,7 +19,7 @@ export default {
   setup() {
     const store = useStore();
     const oneVehicle = computed(() => {
-      return store.getters.oneVehicle;
+      return store.state.oneVehicle;
     });
 
     return {
