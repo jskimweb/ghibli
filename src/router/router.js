@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import store from '../store/index.js';
+import store from '../stores/index.js';
 import Films from '@/views/Films.vue';
 import People from '@/views/People.vue';
 import Locations from '@/views/Locations.vue';
@@ -22,170 +22,110 @@ const router = createRouter({
       path: '/films',
       name: 'Films',
       component: Films,
-      beforeEnter: (to, from, next) => {
+      beforeEnter: async (to, from, next) => {
         store.commit('startSpinner');
-        store
-          .dispatch('GET_FILMS')
-          .then(() => {
-            store.commit('endSpinner');
-            next();
-          })
-          .catch((error) => {
-            console.log(error);
-          });
+        await store.dispatch('GET_FILMS');
+        store.commit('endSpinner');
+        next();
       },
     },
     {
       path: '/people',
       name: 'People',
       component: People,
-      beforeEnter: (to, from, next) => {
+      beforeEnter: async (to, from, next) => {
         store.commit('startSpinner');
-        store
-          .dispatch('GET_PEOPLE')
-          .then(() => {
-            store.commit('endSpinner');
-            next();
-          })
-          .catch((error) => {
-            console.log(error);
-          });
+        await store.dispatch('GET_PEOPLE');
+        store.commit('endSpinner');
+        next();
       },
     },
     {
       path: '/locations',
       name: 'Locations',
       component: Locations,
-      beforeEnter: (to, from, next) => {
+      beforeEnter: async (to, from, next) => {
         store.commit('startSpinner');
-        store
-          .dispatch('GET_LOCATIONS')
-          .then(() => {
-            store.commit('endSpinner');
-            next();
-          })
-          .catch((error) => {
-            console.log(error);
-          });
+        await store.dispatch('GET_LOCATIONS');
+        store.commit('endSpinner');
+        next();
       },
     },
     {
       path: '/species',
       name: 'Species',
       component: Species,
-      beforeEnter: (to, from, next) => {
+      beforeEnter: async (to, from, next) => {
         store.commit('startSpinner');
-        store
-          .dispatch('GET_SPECIES')
-          .then(() => {
-            store.commit('endSpinner');
-            next();
-          })
-          .catch((error) => {
-            console.log(error);
-          });
+        await store.dispatch('GET_SPECIES');
+        store.commit('endSpinner');
+        next();
       },
     },
     {
       path: '/vehicles',
       name: 'Vehicles',
       component: Vehicles,
-      beforeEnter: (to, from, next) => {
+      beforeEnter: async (to, from, next) => {
         store.commit('startSpinner');
-        store
-          .dispatch('GET_VEHICLES')
-          .then(() => {
-            store.commit('endSpinner');
-            next();
-          })
-          .catch((error) => {
-            console.log(error);
-          });
+        await store.dispatch('GET_VEHICLES');
+        store.commit('endSpinner');
+        next();
       },
     },
     {
       path: '/films/:id',
       name: 'FilmDetail',
       component: FilmDetail,
-      beforeEnter: (to, from, next) => {
+      beforeEnter: async (to, from, next) => {
         store.commit('startSpinner');
-        store
-          .dispatch('GET_ONEFILM', to.params.id)
-          .then(() => {
-            store.commit('endSpinner');
-            next();
-          })
-          .catch((error) => {
-            console.log(error);
-          });
+        await store.dispatch('GET_ONEFILM', to.params.id);
+        store.commit('endSpinner');
+        next();
       },
     },
     {
       path: '/people/:id',
       name: 'PeopleDetail',
       component: PeopleDetail,
-      beforeEnter: (to, from, next) => {
+      beforeEnter: async (to, from, next) => {
         store.commit('startSpinner');
-        store
-          .dispatch('GET_ONEPEOPLE', to.params.id)
-          .then(() => {
-            store.commit('endSpinner');
-            next();
-          })
-          .catch((error) => {
-            console.log(error);
-          });
+        await store.dispatch('GET_ONEPEOPLE', to.params.id);
+        store.commit('endSpinner');
+        next();
       },
     },
     {
       path: '/locations/:id',
       name: 'LocationDetail',
       component: LocationDetail,
-      beforeEnter: (to, from, next) => {
+      beforeEnter: async (to, from, next) => {
         store.commit('startSpinner');
-        store
-          .dispatch('GET_ONELOCATION', to.params.id)
-          .then(() => {
-            store.commit('endSpinner');
-            next();
-          })
-          .catch((error) => {
-            console.log(error);
-          });
+        await store.dispatch('GET_ONELOCATION', to.params.id);
+        store.commit('endSpinner');
+        next();
       },
     },
     {
       path: '/species/:id',
       name: 'SpeciesDetail',
       component: SpeciesDetail,
-      beforeEnter: (to, from, next) => {
+      beforeEnter: async (to, from, next) => {
         store.commit('startSpinner');
-        store
-          .dispatch('GET_ONESPECIES', to.params.id)
-          .then(() => {
-            store.commit('endSpinner');
-            next();
-          })
-          .catch((error) => {
-            console.log(error);
-          });
+        await store.dispatch('GET_ONESPECIES', to.params.id);
+        store.commit('endSpinner');
+        next();
       },
     },
     {
       path: '/vehicles/:id',
       name: 'VehicleDetail',
       component: VehicleDetail,
-      beforeEnter: (to, from, next) => {
+      beforeEnter: async (to, from, next) => {
         store.commit('startSpinner');
-        store
-          .dispatch('GET_ONEVEHICLE', to.params.id)
-          .then(() => {
-            store.commit('endSpinner');
-            next();
-          })
-          .catch((error) => {
-            console.log(error);
-          });
+        await store.dispatch('GET_ONEVEHICLE', to.params.id);
+        store.commit('endSpinner');
+        next();
       },
     },
     {

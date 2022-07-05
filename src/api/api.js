@@ -5,83 +5,43 @@ const config = {
 };
 
 async function getFilms() {
-  try {
-    return axios.get(`${config.baseUrl}/films`);
-  } catch (error) {
-    console.log(error);
-  }
+  return axios.get(`${config.baseUrl}/films`);
 }
 
 async function getPeople() {
-  try {
-    return axios.get(`${config.baseUrl}/people`);
-  } catch (error) {
-    console.log(error);
-  }
+  return axios.get(`${config.baseUrl}/people`);
 }
 
 async function getLocations() {
-  try {
-    return axios.get(`${config.baseUrl}/locations`);
-  } catch (error) {
-    console.log(error);
-  }
+  return axios.get(`${config.baseUrl}/locations`);
 }
 
 async function getSpecies() {
-  try {
-    return axios.get(`${config.baseUrl}/species`);
-  } catch (error) {
-    console.log(error);
-  }
+  return axios.get(`${config.baseUrl}/species`);
 }
 
 async function getVehicles() {
-  try {
-    return axios.get(`${config.baseUrl}/vehicles`);
-  } catch (error) {
-    console.log(error);
-  }
+  return axios.get(`${config.baseUrl}/vehicles`);
 }
 
 async function getOneFilm(filmId) {
-  try {
-    return axios.get(`${config.baseUrl}/films/${filmId}`);
-  } catch (error) {
-    console.log(error);
-  }
+  return axios.get(`${config.baseUrl}/films/${filmId}`);
 }
 
 async function getOnePeople(peopleId) {
-  try {
-    return axios.get(`${config.baseUrl}/people/${peopleId}`);
-  } catch (error) {
-    console.log(error);
-  }
+  return axios.get(`${config.baseUrl}/people/${peopleId}`);
 }
 
 async function getOneLocation(locationId) {
-  try {
-    return axios.get(`${config.baseUrl}/locations/${locationId}`);
-  } catch (error) {
-    console.log(error);
-  }
+  return axios.get(`${config.baseUrl}/locations/${locationId}`);
 }
 
 async function getOneSpecies(speciesId) {
-  try {
-    return axios.get(`${config.baseUrl}/species/${speciesId}`);
-  } catch (error) {
-    console.log(error);
-  }
+  return axios.get(`${config.baseUrl}/species/${speciesId}`);
 }
 
 async function getOneVehicle(vehicleId) {
-  try {
-    return axios.get(`${config.baseUrl}/vehicles/${vehicleId}`);
-  } catch (error) {
-    console.log(error);
-  }
+  return axios.get(`${config.baseUrl}/vehicles/${vehicleId}`);
 }
 
 export {

@@ -7,32 +7,20 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { computed } from 'vue';
 import { useStore } from 'vuex';
 
-export default {
-  name: 'LocationDetail',
-  setup() {
-    const store = useStore();
-    const oneLocation = computed(() => {
-      return store.state.oneLocation;
-    });
-
-    return {
-      oneLocation,
-    };
-  },
-};
+const store = useStore();
+const oneLocation = computed(() => store.state.oneLocation);
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .container {
   text-align: center;
-}
-
-.container h2 {
-  font-size: 3rem;
-  margin-bottom: 5rem;
+  h2 {
+    font-size: 3rem;
+    margin-bottom: 5rem;
+  }
 }
 </style>

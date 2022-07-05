@@ -9,7 +9,7 @@ import {
   getOneLocation,
   getOneSpecies,
   getOneVehicle,
-} from '@/api/api.js';
+} from '../api/api.js';
 
 export default {
   async GET_FILMS({ commit }) {

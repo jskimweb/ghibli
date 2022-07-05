@@ -7,32 +7,20 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { computed } from 'vue';
 import { useStore } from 'vuex';
 
-export default {
-  name: 'SpeciesDetail',
-  setup() {
-    const store = useStore();
-    const oneSpecies = computed(() => {
-      return store.state.oneSpecies;
-    });
-
-    return {
-      oneSpecies,
-    };
-  },
-};
+const store = useStore();
+const oneSpecies = computed(() => store.state.oneSpecies);
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .container {
   text-align: center;
-}
-
-.container h2 {
-  font-size: 3rem;
-  margin-bottom: 5rem;
+  h2 {
+    font-size: 3rem;
+    margin-bottom: 5rem;
+  }
 }
 </style>
